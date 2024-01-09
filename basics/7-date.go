@@ -8,7 +8,7 @@ import (
 func main() {
 	_, month, day := time.Now().Date()
 	if int(month) == 1 && day == 1 {
-		fmt.Println("Happy New Year!")
+		fmt.Println("С Новым Годом!")
 	}
 	if int(month) == 1 && day == 7 {
 		fmt.Println("С Рождеством!")
