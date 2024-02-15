@@ -1,0 +1,13 @@
+package components
+
+import (
+    "fmt"
+    "github.com/irayspace/go-legos/learn-echo/6-htmx/domain"
+)
+
+templ ItemComponent(item domain.Item) {
+    <div class="item">
+        <div>{item.Name}</div>
+        <div>{fmt.Sprintf("%.2f", item.Price)}</div>
+    </div>
+}
