@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API for minimial invoicing needs.",
+        "title": "Invoicing API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/invoices/{id}": {
+            "get": {
+                "description": "get invoice",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "invoice"
+                ],
+                "summary": "invoice",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Invoice"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Invoice": {
+            "type": "object",
+            "properties": {
+                "customer": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.InvoiceItem"
+                    }
+                }
+            }
+        },
+        "models.InvoiceItem": {
+            "type": "object",
+            "properties": {
+                "item": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

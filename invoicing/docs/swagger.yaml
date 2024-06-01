@@ -1,0 +1,47 @@
+definitions:
+  models.Invoice:
+    properties:
+      customer:
+        type: string
+      id:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/models.InvoiceItem'
+        type: array
+    type: object
+  models.InvoiceItem:
+    properties:
+      item:
+        type: string
+      quantity:
+        type: integer
+    type: object
+info:
+  contact: {}
+  description: API for minimial invoicing needs.
+  title: Invoicing API
+  version: "1.0"
+paths:
+  /api/v1/invoices/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get invoice
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Invoice'
+      summary: invoice
+      tags:
+      - invoice
+swagger: "2.0"
